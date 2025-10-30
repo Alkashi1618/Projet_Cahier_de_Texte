@@ -1,12 +1,18 @@
 # Cahier de Texte Numérique - TDSI
 
 **Présenter Par:**
-            **Ousmane DEME**
-            **Cheikh Ahmad Al Tidjani Chérif DIAW**
-            **Penda FALL**
-            **Abdoulaye GUENE**
-            **Alioune Badara KEBE**
-            **Boubacar SOUARE**
+
+            Ousmane DEME
+            
+            Cheikh Ahmad Al Tidjani Chérif DIAW
+            
+            Penda FALL
+            
+            Abdoulaye GUENE
+            
+            Alioune Badara KEBE
+            
+            Boubacar SOUARE
             
 ## 📋 Description du Projet
 
@@ -256,6 +262,50 @@ erDiagram
 - Redirection automatique selon le rôle
 - Vérification des permissions (exemple : un professeur ne peut valider que ses cours)
 - Protection contre les accès non autorisés
+
+### Configuration et sécurisation du serveur Tomcat en local
+
+Dans le cadre de la mise en place du serveur d’application Apache Tomcat en environnement local, 
+nous avons procédé à la configuration d’un certificat SSL pour sécuriser les échanges via le protocole HTTPS.
+
+- Le serveur Apache Tomcat 9.0.106 a été installé localement dans le répertoire:
+ ```  C:\Tomcat\apache-tomcat-9.0.106``` 
+                      
+  - Les variables d’environnement ont été définies comme suit :
+  ``` 
+    CATALINA_HOME = C:\Tomcat\apache-tomcat-9.0.106
+    JAVA_HOME = C:\Program Files\Java\jdk-<version>
+  ``` 
+  Ces variables permettent le bon fonctionnement des scripts startup.bat et shutdown.bat pour le démarrage et l’arrêt du serveur.
+                      
+ - Génération du keystore SSL:
+   Un keystore Java a été généré à l’aide de l’outil keytool inclus dans le JDK.
+   La commande utilisée :
+```bash                      
+keytool -genkeypair -alias tomcat -keyalg RSA -keysize 2048 -keystore keystore.jks -validity 365
+```                                 
+Ce fichier keystore.jks contient la clé privée et le certificat auto-signé utilisés pour activer le HTTPS.
+
+           - Activation du HTTPS sur Tomcat:
+           Le fichier de configuration suivant a été modifié : 
+           C:\Tomcat\apache-tomcat-9.0.106\conf\server.xml
+                      
+La section suivante a été décommentée et ajustée :
+```xml                      
+<Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+           maxThreads="150" SSLEnabled="true">
+           <SSLHostConfig>
+                      <Certificate certificateKeystoreFile="C:\Tomcat\apache-tomcat-9.0.106\keystore.jks"
+                      certificateKeystorePassword="motdepasse" type="RSA" />
+            </SSLHostConfig>
+</Connector>
+```
+Test Sur :
+```url
+https://localhost:8443
+```
+
+
 
 ---
 

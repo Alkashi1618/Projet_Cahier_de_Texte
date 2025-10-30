@@ -1,5 +1,13 @@
 # Cahier de Texte Numérique - TDSI
 
+**Présenter Par:**
+            **Ousmane DEME**
+            **Cheikh Ahmad Al Tidjani Chérif DIAW**
+            **Penda FALL**
+            **Abdoulaye GUENE**
+            **Alioune Badara KEBE**
+            **Boubacar SOUARE**
+            
 ## 📋 Description du Projet
 
 Système de numérisation des cahiers de texte pour l'Institut TDSI (Université Cheikh Anta Diop de Dakar). Cette application web J2EE permet la gestion complète des cours, présences, justificatifs d'absence et rapports académiques.
@@ -290,7 +298,9 @@ private static final String PASSWORD = "";
 
 3. **Accéder à l'application** :
    - URL : `http://localhost:8080/CahierDeTEXTE`
+   - URL sécurisé: `https://localhost:8443/CahierDeTEXTE`
    - Page de test : `http://localhost:8080/CahierDeTEXTE/test`
+   - Page de test sécurisée : `https://localhost:8443/CahierDeTEXTE/test`
 
 ---
 
@@ -454,6 +464,7 @@ VALUES ('etud.fall', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d44
 
 **Projet TDSI - Université Cheikh Anta Diop de Dakar**  
 Année Académique : 2024-2025
+
 
 ---
 

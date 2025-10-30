@@ -25,7 +25,7 @@ Système de numérisation des cahiers de texte pour l'Institut TDSI (Université
 ### Stack Technique
 - **Backend**: Java 11, Servlets J2EE
 - **Serveur d'application**: Apache Tomcat 9.0
-- **Base de données**: MySQL (via phpMyAdmin)
+- **Base de données**: SQLServer / MySQL (via phpMyAdmin)
 - **Frontend**: JSP, HTML, CSS
 - **Architecture**: MVC (Model-View-Controller)
 
@@ -332,8 +332,15 @@ private static final String DATABASE = "Cahier_de_Texte";
 private static final String USERNAME = "root";
 private static final String PASSWORD = "";
 ```
-
-3. **Exécuter le script SQL** (voir section Scripts SQL ci-dessous)
+3. **Téléchargement du JDBC driver**
+   ```
+   mysql-connector-j-9.5.0.jar
+   ```
+   ou
+   ```
+   mssql-jdbc-13.2.0.jre8.jar
+   ```
+5. **Exécuter le script SQL** (voir section Scripts SQL ci-dessous)
 
 ### Déploiement sur Tomcat
 
